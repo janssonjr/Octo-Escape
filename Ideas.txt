@@ -1,0 +1,14 @@
+-Level based
+	-The shark shouln't get full. It get full by eating the octos. 
+	-You have to survive x amount of seconds
+	-You have to save x amount of octos.
+
+-Have to save a octo at the bottom to save their friend. Get the captured octo back to the surface to win
+-There will be new octo to save every level with a new outfit.
+
+-You have x max octos. To play a level you need at least x amount of octos. You will lose a octo if it gets eaten
+by the shark. You gain a new octo every x minutes or you can buy octos. You can upgrade your octo storage.
+
+
+ 
+

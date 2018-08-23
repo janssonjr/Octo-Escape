@@ -1,0 +1,41 @@
+{
+
+  "levels": [
+    {
+      "levelIndex": 0,
+      "CapturedOctos": [
+        {
+          "AnchorX": 0.5,
+          "AnchorY": 0,
+          "PosX": -900,
+          "PosY": 200,
+          "KeysNeeded": 5
+
+        },
+        {
+          "AnchorX": 0.5,
+          "AnchorY": 0,
+          "PosX": 0,
+          "PosY": 200,
+          "KeysNeeded": 5
+
+        }
+      ],
+      "amounToDefeat": 10
+    },
+    {
+      "levelIndex": 1,
+      "CapturedOctos": [
+        {
+          "AnchorX": 0.5,
+          "AnchorY": 0,
+          "PosX": 0,
+          "PosY": 200,
+          "KeysNeeded": 1
+
+        }
+      ],
+      "amounToDefeat": 10
+    }
+  ]
+}
