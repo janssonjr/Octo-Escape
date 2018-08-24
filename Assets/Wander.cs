@@ -78,7 +78,9 @@ public class Wander : MonoBehaviour
 	{
 		Vector2 position = transform.position;
 
-		if (myIsPressed)
+		transform.position = position + myWalkDirection * GameManager.DeltaTime * WalkSpeed;
+
+		/*if (myIsPressed)
 		{
 			transform.position = position - myWalkDirection * GameManager.DeltaTime * WalkSpeed;
 
@@ -110,7 +112,7 @@ public class Wander : MonoBehaviour
 		else
 		{
 			transform.position = position + myWalkDirection * GameManager.DeltaTime * WalkSpeed;
-		}
+		}*/
 		//if(myTarget != null)
 		//{
 		//	myWalkDirection = new Vector2(myTarget.position.x - position.x, myTarget.position.y - position.y).normalized;
@@ -142,11 +144,12 @@ public class Wander : MonoBehaviour
 
 	internal void OnPressed(Vector2 aPressedPosition)
 	{
-		if(myMoveDirection == MoveDirection.Down)
+		//if(myMoveDirection == MoveDirection.Down)
 		{
 			myIsPressed = true;
 			Vector2 position = new Vector2(transform.position.x, transform.position.y);
-			myWalkDirection.x = (position - aPressedPosition).normalized.x;
+			myWalkDirection = (aPressedPosition - position).normalized;
+
 			myMoveDirection = MoveDirection.Up;
 		}
 

@@ -22,11 +22,14 @@ public class Octo : MonoBehaviour
 	Image myImage;
 	BoxCollider2D myCollider;
 
+	Transform myKey;
+
 	bool myHasCollidedWithCapturedOcto;
 	bool myIsCaptruedOctoFreed;
 
 	private void OnEnable()
 	{
+		myKey = null;
 		myWander = GetComponent<Wander>();
 		myImage = GetComponent<Image>();
 		myCollider = GetComponent<BoxCollider2D>();
@@ -112,11 +115,22 @@ public class Octo : MonoBehaviour
 		}
 		else if(collision.gameObject.layer == LayerMask.NameToLayer("CapturedOcto"))
 		{
-			CapturedOcto captured = collision.GetComponent<CapturedOcto>();
-			captured.UseKey();
-			myWander.SetTarget(GameManager.Instance.TopGoal);
-			myHasCollidedWithCapturedOcto = true;
+			if(myKey !=  null)
+			{
+				CapturedOcto captured = collision.GetComponent<CapturedOcto>();
+				captured.UseKey();
+				myWander.SetTarget(GameManager.Instance.TopGoal);
+				myHasCollidedWithCapturedOcto = true;
+				Destroy(myKey.gameObject);
+			}
+			
 			//myWander.SetTarget();
+		}
+		else if(collision.gameObject.layer == LayerMask.NameToLayer("Key"))
+		{
+			myKey = collision.gameObject.transform;
+			myKey.parent = transform;
+			myKey.localPosition = new Vector3(0f, -150f, 0f);
 		}
 		
 	}
@@ -126,13 +140,13 @@ public class Octo : MonoBehaviour
 		if (collision.gameObject.layer == LayerMask.NameToLayer("Wall") && myCollider.isTrigger == true)
 		{
 			myCollider.isTrigger = false;
-			myWander.myWalkDirection.y = 1f;
+			myWander.myWalkDirection = Vector3.zero;
 			myWander.WalkSpeed /= 3;
 			//if (myWander.myWalkDirection.x > 0)
 			//	myWander.myWalkDirection.x = 0.7f;
 			//else
 			//	myWander.myWalkDirection.x = -0.7f;
-			myWander.SetTarget(GameManager.Instance.GetRandomCapturedOcto());
+			//myWander.SetTarget(GameManager.Instance.GetRandomCapturedOcto());
 			//myWander.WalkSpeed *= -1;
 		}
 	}

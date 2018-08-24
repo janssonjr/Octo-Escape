@@ -36,6 +36,14 @@ public class GamePanel : Panel
 			rt.anchoredPosition = currenLevelData.CapturedOctos[i].Position;
 			GameManager.Instance.AddCapturedOcto(rt);
 		}
+		for(int i = 0; i < currenLevelData.keys.Length; ++i)
+		{
+			//GameObject go = Instantiate(keyPrefab, transform);
+			//RectTransform rt = go.GetComponent<RectTransform>();
+			//rt.anchorMin = currenLevelData.keys[i].Anchor;
+			//rt.anchorMax = currenLevelData.keys[i].Anchor;
+			//rt.anchoredPosition = currenLevelData.keys[i].Position;
+		}
 		GameManager.Instance.SharkScoreGoal = currenLevelData.amounToDefeat;
 		GameManager.Instance.SetGoalAmount(amountOfCapturedOctos);
 	}
